@@ -1,23 +1,11 @@
-#include <Arduino.h>
-#include <ESP8266WiFi.h>
-#include <WiFiUdp.h>
+#include "radiobuttons.hh"
+#include "wifi.hh"
 #include <ArduinoOTA.h>
 
-#define HOSTNAME "radiobuttons"
-#define OTA_PASSWORD "private"
-#define WLAN_SSID   "Will be redefined"
-#define WLAN_PASSWORD "in next include"
-#include "WLAN_Luftb.hh" // not in git
-
-void setup_wifi() {
-  WiFi.persistent(false);
-  WiFi.mode(WIFI_STA);
-  WiFi.hostname(HOSTNAME);
-  WiFi.begin(WLAN_SSID, WLAN_PASSWORD);
-}
+wifi_t wifi;
 
 void setup_over_the_air_updates() {
-    ArduinoOTA.setHostname(HOSTNAME);
+    ArduinoOTA.setHostname(wifi.get_hostname());
     ArduinoOTA.begin();
 }
 
@@ -33,11 +21,11 @@ void setup_buttons() {
 
 void setup() {
   setup_buttons();
-  setup_wifi();
   setup_over_the_air_updates();
 }
 
 void loop() {
   ArduinoOTA.handle();
+  wifi.handle();
   delay(5);
 }
