@@ -1,13 +1,9 @@
 #include "radiobuttons.hh"
 #include "wifi.hh"
-#include <ArduinoOTA.h>
+#include "ota.hh"
 
 wifi_t wifi;
-
-void setup_over_the_air_updates() {
-    ArduinoOTA.setHostname(wifi.get_hostname());
-    ArduinoOTA.begin();
-}
+ota_t ota(wifi.get_hostname());
 
 char button_states[5] = "0000";
 unsigned long button_times[4] = {0,0,0,0};
@@ -21,11 +17,9 @@ void setup_buttons() {
 
 void setup() {
   setup_buttons();
-  setup_over_the_air_updates();
 }
 
 void loop() {
-  ArduinoOTA.handle();
   wifi.handle();
-  delay(5);
+  ota.handle();
 }
