@@ -85,7 +85,7 @@ public:
 class buttons_t {
 public:
     /// Array with all buttons that this object manages.
-    button_t buttons[4] = {{D5,"turnoff"},{D4,"louder"},{D3,"softer"},{D8,"forward"}};
+    button_t buttons[4] = {{D5,"turnoff"},{D4,"louder"},{D3,"softer"},{D7,"forward"}};
     buttons_t() = default;
     /// Updates the states of all buttons.
     /// @return A vector with the labes with all buttons that experience a new
