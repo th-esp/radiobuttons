@@ -14,6 +14,6 @@ wifi_t::wifi_t() {
 
 void wifi_t::handle() {}
 
-const char * wifi_t::get_hostname() const {
+const char * wifi_t::get_hostname() {
     return HOSTNAME;
 }

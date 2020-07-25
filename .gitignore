@@ -4,3 +4,4 @@
 .vscode/launch.json
 .vscode/ipch
 WLAN_*.h*
+MQTT_*.h*

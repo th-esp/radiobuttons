@@ -10,6 +10,6 @@ public:
     /// performs maintenance as required
     void handle();
     /// Hostname of this ESP
-    const char * get_hostname() const;
+    static const char * get_hostname();
 };
 #endif
