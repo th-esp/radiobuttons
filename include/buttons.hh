@@ -1,6 +1,7 @@
 #ifndef BUTTONS_HH
 #define BUTTONS_HH
 #include <Arduino.h>
+#include "milliseconds.hh"
 
 enum button_state_t : char {
     PRESSED='1',
@@ -17,8 +18,6 @@ button_state_t next_state(button_state_t current_state);
 
 /// type for pin identifiers and pi states
 typedef uint8_t pin_t;
-/// Type for durations and clock times in milliseconds
-typedef unsigned long int milliseconds_t;
 
 /** The button class keeps track of the button's state and does debouncing
  * in software.  Responds to state changes of a push button connected to
